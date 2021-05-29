@@ -84,6 +84,7 @@ public class Game implements Runnable ,MouseListener ,MouseMotionListener{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setEnabled(true);
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
         
         canvas = new Canvas();
         canvas.setPreferredSize(new Dimension(width  + subWidth,height));
@@ -92,7 +93,7 @@ public class Game implements Runnable ,MouseListener ,MouseMotionListener{
         canvas.setFocusable(false);
         
         frame.add(canvas);
-        frame.pack();
+        frame.pack();   
         
         //   Hiding Cursor
         BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
@@ -361,10 +362,20 @@ public class Game implements Runnable ,MouseListener ,MouseMotionListener{
     }
     
     public synchronized void stop(){
-        if(!GameRunning)
+        System.out.println("hey");
+        if(!GameRunning){
+            frame.setFocusable(false);
+            frame.dispose();
+            GameOver gameOver = new GameOver(score);
+            gameOver.setVisible(true);
+            gameOver.setLocationRelativeTo(null);
             return;
+        }
+        else
+            System.out.println("game is running");
         
         GameRunning = false;
+
         try {
             t.join();
         } catch (InterruptedException ex) {
@@ -414,5 +425,10 @@ public class Game implements Runnable ,MouseListener ,MouseMotionListener{
     public boolean isGameRunning() {
         return GameRunning;
     }
+    
+    public int getScore() {
+        return score;
+    }
+    
     
 }
