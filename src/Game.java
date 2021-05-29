@@ -44,7 +44,7 @@ public class Game implements Runnable ,MouseListener ,MouseMotionListener{
     ArrayList<Obstacle> obstacles;
     Random ran = new Random();
     boolean bool = true;
-    BufferedImage playerIMG,asteroidSprite ,currentAsteroid ,enemy,bgIMG,repair;
+    BufferedImage playerIMG,asteroidSprite ,currentAsteroid ,enemy,bgIMG,repair, sign;
     BufferedImage[] asteroids;
     Rectangle playerBounds;
     ArrayList <Rectangle> bullets;
@@ -109,6 +109,7 @@ public class Game implements Runnable ,MouseListener ,MouseMotionListener{
             enemy = ImageIO.read(this.getClass().getResource("/img/Enemy_Shuttle.png"));
             bgIMG = ImageIO.read(this.getClass().getResource("/img/BG.png"));
             repair = ImageIO.read(this.getClass().getResource("/img/repair.png"));
+            sign = ImageIO.read(this.getClass().getResource("/img/signature.png"));
             asteroids = new BufferedImage[16];
 
             for(int i=0;i<16;i++){
@@ -299,8 +300,8 @@ public class Game implements Runnable ,MouseListener ,MouseMotionListener{
         g.drawString("Dead     :", width + 30, 180);
         g.drawString("" + enKills, width + 30, 230);
         g.drawString("Health   :   " + player.getHealth(), width + 30, 280);
-        
         g.drawString("FPS   :   "+lastFPS, width +30, 400);
+        g.drawImage(sign,width+30,height-70, 90, 60, null);
         
         //  -----------------------  End Drawing  ------------------------------
         

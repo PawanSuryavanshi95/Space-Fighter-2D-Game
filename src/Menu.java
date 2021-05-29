@@ -16,6 +16,8 @@ public class Menu extends javax.swing.JFrame {
         this.title1.setBackground( new Color(231, 245, 174, 100) );
         this.title2.setBackground( new Color(255, 176, 184, 100) );
         this.play.setBackground( new Color(255, 176, 184, 100) );
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -21,11 +21,12 @@ public class GameOver extends javax.swing.JFrame {
         initComponents();
         this.jLabel2.setText(this.jLabel2.getText() + String.valueOf(score));
         System.out.println(this.getBounds());
-        this.setBounds(0, 0, 480, 440);
-        this.setMaximumSize(new Dimension(480,440));
-        this.setMinimumSize(new Dimension(480,440));
+        this.setBounds(0, 0, 465, 440);
+        this.setMaximumSize(new Dimension(465,440));
+        this.setMinimumSize(new Dimension(465,440));
         this.setLocationRelativeTo(null);
         this.play.setBackground( new Color(255, 255, 255, 255) );
+        this.setResizable(false);
     }
 
     /**
