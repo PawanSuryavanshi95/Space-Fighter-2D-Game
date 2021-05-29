@@ -9,3 +9,9 @@ Valar Morghulis
 
 # Screenshots
 
+<img scr="screenshots/1" />
+<img scr="screenshots/3" />
+<img scr="screenshots/4" />
+<img scr="screenshots/6" />
+<img scr="screenshots/7" />
+
