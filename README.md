@@ -9,10 +9,12 @@ Valar Morghulis
 
 # Screenshots
 
-<img scr="screenshots/1.png" >
-<img scr="https://raw.githubusercontent.com/PawanSuryavanshi95/Space-Fighter-2D-Game/master/screenshots/3.png" >
-<img scr="screenshots/4.png" >
-<img scr="screenshots/6.png" >
-<img scr="screenshots/7.png" >
-
 ![](screenshots/1.png)
+
+![](screenshots/3.png)
+
+![](screenshots/4.png)
+
+![](screenshots/5.png)
+
+![](screenshots/7.png)
