@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body  %}
+    <div class="container">
+        <div id='title'>
+            <span>
+              SPACE FIGHTER LEADERBOARDS
+            </span>
+
+          </div>
+	
+        <div class="table">
+            <div class="table-header">
+                <div class="header__item"><a id="name" class="filter__link" href="#">Id</a></div>
+                <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Rank</a></div>
+                <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Name</a></div>
+                <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Score</a></div>
+                <div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">Kills</a></div>
+            </div>
+            <div class="table-content">	
+                {% set vars = {'i': 1} %}
+                {% for score in scores %}
+                <div class="table-row">		
+                    <div class="table-data">{{ score.id }}</div>
+                    <div class="table-data">{{vars.i}}</div>
+                    <div class="table-data">{{ score.name }}</div>
+                    <div class="table-data">{{ score.score }}</div>
+                    <div class="table-data">{{ score.kills }}</div>
+                </div>
+                {% if vars.update({'i': vars.i+1}) %} {% endif %}
+                {% endfor %}
+            </div>	
+        </div>
+    </div>
+{% endblock %}
