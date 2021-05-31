@@ -203,6 +203,7 @@ public class Game implements Runnable ,MouseListener ,MouseMotionListener{
             if(enemies.get(i).getHealth() <= 0 && enemies.get(i).isAlive()){
                 enemies.get(i).setAlive(false);
                 enKills++;
+                score += 5;
             }
             if(enemies.get(i).getY() > height){
                 enemies.remove(i);
@@ -367,7 +368,7 @@ public class Game implements Runnable ,MouseListener ,MouseMotionListener{
         if(!GameRunning){
             frame.setFocusable(false);
             frame.dispose();
-            GameOver gameOver = new GameOver(score);
+            GameOver gameOver = new GameOver(score, enKills, "John Doe");
             gameOver.setVisible(true);
             gameOver.setLocationRelativeTo(null);
             return;
