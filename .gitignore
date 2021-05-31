@@ -1,1 +1,3 @@
 /dist/
+/server/Procfile
+/server/requirements.txt
