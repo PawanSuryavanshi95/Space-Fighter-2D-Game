@@ -1,3 +1,5 @@
+package com.spacefighter.game;
+
 
 import java.awt.Graphics;
 import java.awt.Rectangle;

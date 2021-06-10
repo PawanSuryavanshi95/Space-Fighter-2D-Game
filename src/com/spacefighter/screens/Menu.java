@@ -1,18 +1,23 @@
+package com.spacefighter.screens;
+
 /**
  *
  * @author Pawan Suryavanshi
  */
 
+import com.spacefighter.game.Game;
 import java.awt.Color;
-import javax.swing.JFrame;
 
 public class Menu extends javax.swing.JFrame {
 
     /**
      * Creates new form MEnu
      */
-    public Menu() {
+    private String token;
+    
+    public Menu(String token) {
         initComponents();
+        this.token = token;
         this.title1.setBackground( new Color(231, 245, 174, 100) );
         this.title2.setBackground( new Color(255, 176, 184, 100) );
         this.play.setBackground( new Color(255, 176, 184, 100) );
@@ -30,7 +35,6 @@ public class Menu extends javax.swing.JFrame {
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(null);
 
@@ -86,7 +90,7 @@ public class Menu extends javax.swing.JFrame {
     private void playMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playMousePressed
         this.play.setBackground( new Color(250, 117, 130, 200) );
         this.dispose();
-        Game game = new Game("Space Fighter",550,750,150);
+        Game game = new Game("Space Fighter",550,750,150, token);
         game.start();
     }//GEN-LAST:event_playMousePressed
 
@@ -133,7 +137,7 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new Menu("").setVisible(true);
             }
         });
     }

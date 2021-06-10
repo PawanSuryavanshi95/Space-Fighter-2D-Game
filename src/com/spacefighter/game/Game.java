@@ -1,8 +1,11 @@
+package com.spacefighter.game;
+
 /*
                Made ENTIRELY by  .:: Pawan Suryavanshi 'The Great' ::.
  */
 
 
+import com.spacefighter.screens.GameOver;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -29,6 +32,7 @@ import javax.swing.JFrame;
  * @author Pawan Suryavanshi
  */
 public class Game implements Runnable ,MouseListener ,MouseMotionListener{
+    private String token;
     int width ,height ,ticks ,obs_speed = 2 ,subWidth ,score = 0 ,secCount = 0 ,
             enKills = 0;
     long time = 0;
@@ -53,7 +57,8 @@ public class Game implements Runnable ,MouseListener ,MouseMotionListener{
     PowerUp PU;
     int lastFPS;
 
-    public Game(String title ,int width ,int height ,int subWidth){
+    public Game(String title ,int width ,int height ,int subWidth, String token){
+        this.token = token;
         this.title = title;
         this.height = height;
         this.width = width;
@@ -105,15 +110,15 @@ public class Game implements Runnable ,MouseListener ,MouseMotionListener{
     public void loadImages(){
         try {
             
-            playerIMG = ImageIO.read(this.getClass().getResource("/img/Player_Shuttle.png"));
-            enemy = ImageIO.read(this.getClass().getResource("/img/Enemy_Shuttle.png"));
-            bgIMG = ImageIO.read(this.getClass().getResource("/img/BG.png"));
-            repair = ImageIO.read(this.getClass().getResource("/img/repair.png"));
-            sign = ImageIO.read(this.getClass().getResource("/img/signature.png"));
+            playerIMG = ImageIO.read(this.getClass().getResource("/img/game/Player_Shuttle.png"));
+            enemy = ImageIO.read(this.getClass().getResource("/img/game/Enemy_Shuttle.png"));
+            bgIMG = ImageIO.read(this.getClass().getResource("/img/game/BG.png"));
+            repair = ImageIO.read(this.getClass().getResource("/img/game/repair.png"));
+            sign = ImageIO.read(this.getClass().getResource("/img/game/signature.png"));
             asteroids = new BufferedImage[16];
 
             for(int i=0;i<16;i++){
-                asteroids[i] = ImageIO.read(this.getClass().getResource("/img/asteroids_"+(i+1)+".png"));
+                asteroids[i] = ImageIO.read(this.getClass().getResource("/img/game/asteroids_"+(i+1)+".png"));
             }
             
         } catch (Exception ex) {
@@ -368,7 +373,7 @@ public class Game implements Runnable ,MouseListener ,MouseMotionListener{
         if(!GameRunning){
             frame.setFocusable(false);
             frame.dispose();
-            GameOver gameOver = new GameOver(score, enKills, "John Doe");
+            GameOver gameOver = new GameOver(score, enKills, token);
             gameOver.setVisible(true);
             gameOver.setLocationRelativeTo(null);
             return;

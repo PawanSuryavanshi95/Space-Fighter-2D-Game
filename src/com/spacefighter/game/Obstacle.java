@@ -1,3 +1,5 @@
+package com.spacefighter.game;
+
 
 import java.awt.Color;
 import java.awt.Graphics;
