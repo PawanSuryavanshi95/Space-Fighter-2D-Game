@@ -22,13 +22,13 @@
             </div>
             <div class="table-content">	
                 {% set vars = {'i': 1} %}
-                {% for score in scores %}
+                {% for player in players %}
                 <div class="table-row">		
-                    <div class="table-data">{{ score.id }}</div>
+                    <div class="table-data">{{ player.id }}</div>
                     <div class="table-data">{{vars.i}}</div>
-                    <div class="table-data">{{ score.name }}</div>
-                    <div class="table-data">{{ score.score }}</div>
-                    <div class="table-data">{{ score.kills }}</div>
+                    <div class="table-data">{{ player.username }}</div>
+                    <div class="table-data">{{ player.score }}</div>
+                    <div class="table-data">{{ player.kills }}</div>
                 </div>
                 {% if vars.update({'i': vars.i+1}) %} {% endif %}
                 {% endfor %}
